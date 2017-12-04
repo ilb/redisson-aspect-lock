@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.ilb.aspectlock</groupId>
     <artifactId>redisson-aspect-lock</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
     <name>redisson-aspect-lock</name>
     <description>aspect lock</description>
@@ -34,7 +34,7 @@
     <scm>
         <connection>scm:git:https://github.com/ilb/redisson-aspect-lock.git</connection>
         <url>https://github.com/ilb/common</url>
-        <tag>HEAD</tag>
+        <tag>redisson-aspect-lock-1.0</tag>
     </scm>
     <distributionManagement>
         <snapshotRepository>

@@ -1,16 +1,15 @@
 package com.github.sadstool.redissonaspectlock.lock;
 
-import org.redisson.api.RLock;
 
 import java.util.concurrent.TimeUnit;
 
-public class RedissonLock implements Lock {
+public class JavaLock implements Lock {
 
-    private RLock lock;
+    private java.util.concurrent.locks.Lock lock;
     private long waitTime;
     private long leaseTime;
 
-    public RedissonLock(RLock lock, long waitTime, long leaseTime) {
+    public JavaLock(java.util.concurrent.locks.Lock lock, long waitTime, long leaseTime) {
         this.lock = lock;
         this.waitTime = waitTime;
         this.leaseTime = leaseTime;
@@ -18,7 +17,7 @@ public class RedissonLock implements Lock {
 
     public boolean acquire() {
         try {
-            return lock.tryLock(waitTime, leaseTime, TimeUnit.MILLISECONDS);
+            return lock.tryLock(waitTime, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             return false;
         }

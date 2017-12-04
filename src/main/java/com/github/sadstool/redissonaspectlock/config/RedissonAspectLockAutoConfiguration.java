@@ -12,14 +12,13 @@ import com.github.sadstool.redissonaspectlock.attributes.key.SpelLockKeyProvider
 import com.github.sadstool.redissonaspectlock.config.properties.LockProperties;
 import com.github.sadstool.redissonaspectlock.error.LockExceptionFactory;
 import com.github.sadstool.redissonaspectlock.lock.LockFactory;
-import org.redisson.api.RedissonClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({RedissonAutoConfiguration.class, LockProperties.class, LockManager.class})
+@Import({LockProperties.class, LockManager.class})
 public class RedissonAspectLockAutoConfiguration {
 
     @Bean
@@ -76,7 +75,7 @@ public class RedissonAspectLockAutoConfiguration {
     }
 
     @Bean
-    public LockFactory lockFactory(RedissonClient redissonClient) {
-        return new LockFactory(redissonClient);
+    public LockFactory lockFactory() {
+        return new LockFactory();
     }
 }
